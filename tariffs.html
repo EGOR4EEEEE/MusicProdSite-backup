@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тарифы — Music Prod</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+  <a class="logo" href="index.html">
+    <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+    <div class="logo-text">Music<span>Prod</span></div>
+  </a>
+  <button class="burger" id="burger" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Навигация -->
+<div class="floating-nav" id="floatingNav">
+  <a class="nav-link" href="index.html">Главная</a>
+  <a class="nav-link" href="tariffs.html">Тарифы</a>
+  <a class="nav-link" href="about.html">О студии</a>
+  <a class="nav-link" href="contacts.html">Контакты</a>
+  <a class="nav-link" href="reviews.html">Отзывы</a>
+  <button class="btn-header" onclick="openModal()">
+    <i class="fa-solid fa-calendar-check"></i> Забронировать
+  </button>
+</div>
+
+<!-- Переключатель темы -->
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Сменить тему">
+  <i class="fa-solid fa-sun"></i>
+</button>
+
+<!-- Мобильное меню -->
+<div class="mob-menu" id="mobMenu">
+  <a class="nav-link" href="index.html">Главная</a>
+  <a class="nav-link" href="tariffs.html">Тарифы</a>
+  <a class="nav-link" href="about.html">О студии</a>
+  <a class="nav-link" href="contacts.html">Контакты</a>
+  <a class="nav-link" href="reviews.html">Отзывы</a>
+  <button class="btn-header" onclick="openModal()" style="margin-top:.4rem">
+    <i class="fa-solid fa-calendar-check"></i> Забронировать
+  </button>
+</div>
+
+<main>
+  <section class="tariffs-section" style="padding-top:5rem">
+    <div class="container">
+      <div class="label">Стоимость услуг</div>
+      <h2 class="title">Тарифы</h2>
+      <p class="sub">Выберите подходящий формат — мы подстроимся под ваши задачи и бюджет</p>
+      <div class="tariffs-grid">
+
+        <div class="tc-card">
+          <div class="tc-icon"><i class="fa-solid fa-microphone"></i></div>
+          <div class="tc-name">Запись вокала</div>
+          <div class="tc-desc">Запись вокала с живым звуком. Идеально для певцов и рэперов</div>
+          <div class="tc-price">от <span>1 500 ₽</span><small>/час</small></div>
+          <ul class="tc-features">
+            <li><i class="fa-solid fa-check"></i>Микрофон Neumann TLM 103</li>
+            <li><i class="fa-solid fa-check"></i>Интерфейс RME Fireface</li>
+            <li><i class="fa-solid fa-check"></i>Акустически изолированная кабина</li>
+            <li><i class="fa-solid fa-check"></i>Помощь звукорежиссёра</li>
+            <li><i class="fa-solid fa-check"></i>Наушники для артиста</li>
+          </ul>
+          <button class="tc-btn" onclick="openModal('vocal')">Выбрать тариф</button>
+        </div>
+
+        <div class="tc-card featured">
+          <span class="tc-badge">Популярный</span>
+          <div class="tc-icon"><i class="fa-solid fa-guitar"></i></div>
+          <div class="tc-name">Запись инструментов</div>
+          <div class="tc-desc">Запись живых инструментов: гитара, бас, клавиши, духовые</div>
+          <div class="tc-price">от <span>2 000 ₽</span><small>/час</small></div>
+          <ul class="tc-features">
+            <li><i class="fa-solid fa-check"></i>Набор инструментальных микрофонов</li>
+            <li><i class="fa-solid fa-check"></i>DI-бокс, предусилители</li>
+            <li><i class="fa-solid fa-check"></i>Просторный живой зал</li>
+            <li><i class="fa-solid fa-check"></i>Опытный звукорежиссёр</li>
+            <li><i class="fa-solid fa-check"></i>Мониторинг в реальном времени</li>
+          </ul>
+          <button class="tc-btn" onclick="openModal('instruments')">Выбрать тариф</button>
+        </div>
+
+        <div class="tc-card">
+          <div class="tc-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div class="tc-name">Сведение / Мастеринг</div>
+          <div class="tc-desc">Профессиональное сведение и мастеринг вашего материала</div>
+          <div class="tc-price">от <span>3 000 ₽</span><small>/трек</small></div>
+          <ul class="tc-features">
+            <li><i class="fa-solid fa-check"></i>Pro Tools / Logic Pro</li>
+            <li><i class="fa-solid fa-check"></i>Мониторы Yamaha HS8</li>
+            <li><i class="fa-solid fa-check"></i>Plug-ins UAD, Waves</li>
+            <li><i class="fa-solid fa-check"></i>До 2 правок включено</li>
+            <li><i class="fa-solid fa-check"></i>Форматы WAV / MP3</li>
+          </ul>
+          <button class="tc-btn" onclick="openModal('mixing')">Выбрать тариф</button>
+        </div>
+
+        <div class="tc-card">
+          <div class="tc-icon"><i class="fa-solid fa-door-open"></i></div>
+          <div class="tc-name">Аренда студии</div>
+          <div class="tc-desc">Полная аренда студии для репетиций, кастингов или записи</div>
+          <div class="tc-price">от <span>2 500 ₽</span><small>/час</small></div>
+          <ul class="tc-features">
+            <li><i class="fa-solid fa-check"></i>Полная студия в распоряжении</li>
+            <li><i class="fa-solid fa-check"></i>Весь инвентарь включён</li>
+            <li><i class="fa-solid fa-check"></i>Кухня и зона отдыха</li>
+            <li><i class="fa-solid fa-check"></i>Без звукорежиссёра (опционально)</li>
+            <li><i class="fa-solid fa-check"></i>Скидка от 4 часов</li>
+          </ul>
+          <button class="tc-btn" onclick="openModal('rent')">Выбрать тариф</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Футер -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html" style="justify-content:flex-start">
+        <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+        <div class="logo-text">Music<span>Prod</span></div>
+      </a>
+      <p>Профессиональная студия звукозаписи в Санкт-Петербурге. Воплощаем ваши музыкальные идеи с 2016 года.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="tariffs.html">Тарифы</a></li>
+        <li><a href="about.html">О студии</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="reviews.html">Отзывы</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <ul>
+        <li>+7 (812) 123-45-67</li>
+        <li>booking@musicprod.ru</li>
+        <li>ул. Рубинштейна, 15</li>
+        <li>Пн–Вс, 10:00–22:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 MusicProd. Все права защищены.</span>
+    <span>Санкт-Петербург, ул. Рубинштейна, 15</span>
+    <a href="admin.html" class="admin-footer-link"><i class="fa-solid fa-lock"></i> Админ</a>
+  </div>
+</footer>
+
+<!-- Модальное окно -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-title">Забронировать сессию</div>
+    <p class="modal-sub">Заполните форму — мы свяжемся в течение часа и подтвердим бронь</p>
+    <form id="bookingForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fName">Имя *</label>
+          <input type="text" id="fName" placeholder="Ваше имя" required>
+        </div>
+        <div class="form-group">
+          <label for="fPhone">Телефон *</label>
+          <input type="tel" id="fPhone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group full">
+          <label for="fEmail">Email</label>
+          <input type="email" id="fEmail" placeholder="mail@example.com">
+        </div>
+        <div class="form-group">
+          <label for="fTariff">Тариф</label>
+          <select id="fTariff">
+            <option value="">— Выберите —</option>
+            <option value="vocal">Запись вокала</option>
+            <option value="instruments">Запись инструментов</option>
+            <option value="mixing">Сведение / Мастеринг</option>
+            <option value="rent">Аренда студии</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fEngineer">Звукорежиссёр</label>
+          <select id="fEngineer">
+            <option value="">— Любой —</option>
+            <option value="aleksey">Алексей Громов</option>
+            <option value="dmitriy">Дмитрий Орлов</option>
+            <option value="igor">Игорь Михайлов</option>
+            <option value="olga">Ольга Вершинина</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="fDate">Желаемая дата</label>
+          <input type="date" id="fDate">
+        </div>
+        <div class="form-group full">
+          <label for="fComment">Комментарий</label>
+          <textarea id="fComment" placeholder="Жанр, количество треков, пожелания..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">
+        <i class="fa-solid fa-paper-plane"></i> Отправить заявку
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Тост -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  Спасибо! Мы свяжемся с вами в ближайшее время.
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

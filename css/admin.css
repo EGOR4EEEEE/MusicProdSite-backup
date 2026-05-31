@@ -1,0 +1,637 @@
+/* ── Базовые переменные ── */
+:root {
+    --bg:     #09090e;
+    --bg-2:   #0f0f17;
+    --card:   #0f0f1a;
+    --border: #1e1e2e;
+    --bd2:    #272738;
+    --accent: #9333ea;
+    --ac2:    #c084fc;
+    --text:   #c8c8dc;
+    --bright: #e0e0f0;
+    --dim:    #6a6a85;
+    --dim2:   #8a8aa5;
+    --font:   'Segoe UI', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ── Экран входа ── */
+.login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(100,30,180,.12) 0%, transparent 70%),
+        var(--bg);
+    padding: 1rem;
+}
+
+.login-box {
+    background: var(--card);
+    border: 1px solid var(--bd2);
+    border-radius: 20px;
+    padding: 2.5rem 2.2rem;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+.login-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--bright);
+    margin-bottom: 1.6rem;
+}
+
+.login-logo i {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #9333ea, #6d28d9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.login-logo b {
+    color: var(--accent);
+}
+
+.login-box h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--bright);
+    margin-bottom: .35rem;
+}
+
+.login-box p {
+    font-size: .85rem;
+    color: var(--dim2);
+    margin-bottom: 1.6rem;
+}
+
+.login-field {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--bd2);
+    border-radius: 10px;
+    padding: 0 .9rem;
+    margin-bottom: .7rem;
+    transition: border-color .2s;
+}
+
+.login-field:focus-within {
+    border-color: rgba(168,85,247,.4);
+}
+
+.login-field i {
+    color: var(--dim);
+    font-size: .88rem;
+    flex-shrink: 0;
+}
+
+.login-field input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: .92rem;
+    padding: .75rem .7rem;
+}
+
+.login-error {
+    color: #f87171;
+    font-size: .82rem;
+    margin-bottom: .7rem;
+    display: none;
+}
+
+.login-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #9333ea, #7c3aed);
+    color: #fff;
+    border: none;
+    padding: .78rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    transition: opacity .2s;
+    margin-bottom: 1.1rem;
+}
+
+.login-btn:hover {
+    opacity: .88;
+}
+
+.login-back {
+    font-size: .83rem;
+    color: var(--dim2);
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.login-back:hover {
+    color: var(--text);
+}
+
+/* ── Шапка панели ── */
+.admin-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 62px;
+    background: rgba(9,9,14,.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+}
+
+.admin-logo {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--bright);
+    white-space: nowrap;
+}
+
+.admin-logo i {
+    color: var(--accent);
+}
+
+.admin-logo b {
+    color: var(--accent);
+}
+
+.admin-header-right {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.admin-link {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    color: var(--dim2);
+    text-decoration: none;
+    font-size: .85rem;
+    padding: .38rem .9rem;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    transition: all .2s;
+}
+
+.admin-link:hover {
+    color: var(--text);
+    border-color: var(--bd2);
+}
+
+.admin-logout {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--border);
+    color: var(--dim2);
+    padding: .38rem .9rem;
+    border-radius: 7px;
+    font-size: .85rem;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.admin-logout:hover {
+    color: #f87171;
+    border-color: rgba(248,113,113,.3);
+}
+
+/* ── Статус подключения к БД ── */
+.db-status-bar {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .55rem 2rem;
+    font-size: .82rem;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: background .3s, color .3s;
+    background: rgba(255, 255, 255, .03);
+    color: var(--dim2);
+    border-color: var(--border);
+}
+
+.db-status-bar.db-ok {
+    background: rgba(34, 197, 94, .07);
+    color: #4ade80;
+    border-color: rgba(34, 197, 94, .18);
+}
+
+.db-status-bar.db-err {
+    background: rgba(248, 113, 113, .07);
+    color: #f87171;
+    border-color: rgba(248, 113, 113, .18);
+}
+
+.db-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: var(--dim);
+}
+
+.db-status-dot.dot-ok {
+    background: #4ade80;
+    box-shadow: 0 0 6px rgba(74, 222, 128, .7);
+    animation: dot-pulse 2.5s ease-in-out infinite;
+}
+
+.db-status-dot.dot-err {
+    background: #f87171;
+    box-shadow: 0 0 6px rgba(248, 113, 113, .7);
+}
+
+@keyframes dot-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: .45; }
+}
+
+/* ── Основной контент ── */
+.admin-main {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.admin-section h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--bright);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.admin-section h2 i {
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+/* ── Карточки статистики ── */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    transition: border-color .2s;
+}
+
+.stat-card:hover {
+    border-color: var(--bd2);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.stat-value {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--bright);
+    line-height: 1;
+}
+
+.stat-name {
+    font-size: .8rem;
+    color: var(--dim2);
+    margin-top: .3rem;
+}
+
+/* ── Диаграммы ── */
+.charts-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.2rem;
+}
+
+.chart-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+}
+
+.chart-box h3 {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--bright);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.chart-box h3 i {
+    color: var(--accent);
+}
+
+/* ── Таблица ── */
+.table-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.table-header h2 {
+    margin: 0;
+    flex: 1;
+    min-width: 140px;
+}
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    flex-wrap: wrap;
+}
+
+.table-actions select,
+.table-actions input {
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--bd2);
+    color: var(--text);
+    padding: .48rem .85rem;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: .85rem;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.table-actions select option {
+    background: #0f0f1a;
+}
+
+.table-actions input {
+    min-width: 220px;
+}
+
+.table-actions input:focus,
+.table-actions select:focus {
+    border-color: rgba(168,85,247,.4);
+}
+
+.btn-clear {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(248,113,113,.08);
+    border: 1px solid rgba(248,113,113,.2);
+    color: #f87171;
+    padding: .48rem .9rem;
+    border-radius: 8px;
+    font-size: .85rem;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+}
+
+.btn-clear:hover {
+    background: rgba(248,113,113,.15);
+}
+
+.table-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85rem;
+}
+
+.admin-table thead {
+    border-bottom: 1px solid var(--bd2);
+}
+
+.admin-table th {
+    padding: .85rem 1rem;
+    text-align: left;
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--dim);
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: .8rem 1rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr:hover td {
+    background: rgba(255,255,255,.02);
+}
+
+.td-comment {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--dim2);
+    font-size: .82rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: .22rem .7rem;
+    border-radius: 20px;
+    font-size: .75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-new {
+    background: rgba(234,179,8,.12);
+    color: #fbbf24;
+}
+
+.status-other {
+    background: rgba(255,255,255,.06);
+    color: var(--dim2);
+}
+
+.table-empty {
+    padding: 3rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--dim);
+}
+
+.table-empty i {
+    font-size: 2.5rem;
+    opacity: .35;
+}
+
+.table-empty p {
+    font-size: .9rem;
+    text-align: center;
+    max-width: 340px;
+}
+
+/* ── Загрузка аудио ── */
+.upload-cell {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.upload-row {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    flex-wrap: wrap;
+}
+
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(147, 51, 234, .1);
+    border: 1px solid rgba(147, 51, 234, .3);
+    color: #c084fc;
+    padding: .38rem .85rem;
+    border-radius: 7px;
+    font-size: .82rem;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+}
+
+.upload-btn:hover {
+    background: rgba(147, 51, 234, .2);
+    border-color: rgba(147, 51, 234, .5);
+}
+
+.delete-audio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: rgba(248, 113, 113, .08);
+    border: 1px solid rgba(248, 113, 113, .22);
+    color: #f87171;
+    border-radius: 7px;
+    font-size: .78rem;
+    cursor: pointer;
+    transition: all .2s;
+    flex-shrink: 0;
+}
+
+.delete-audio-btn:hover {
+    background: rgba(248, 113, 113, .18);
+    border-color: rgba(248, 113, 113, .45);
+}
+
+.upload-hint {
+    font-size: .73rem;
+    color: var(--dim);
+}
+
+.upload-status {
+    font-size: .8rem;
+}
+
+/* ── Адаптив ── */
+@media (max-width: 900px) {
+    .charts-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .admin-main {
+        padding: 1.2rem 1rem 3rem;
+    }
+
+    .admin-header {
+        padding: 0 1rem;
+    }
+
+    .admin-logo span {
+        display: none;
+    }
+}

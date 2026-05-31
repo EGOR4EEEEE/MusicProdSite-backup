@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О студии — Music Prod</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+  <a class="logo" href="index.html">
+    <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+    <div class="logo-text">Music<span>Prod</span></div>
+  </a>
+  <button class="burger" id="burger" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Навигация -->
+<div class="floating-nav" id="floatingNav">
+  <a class="nav-link" href="index.html">Главная</a>
+  <a class="nav-link" href="tariffs.html">Тарифы</a>
+  <a class="nav-link" href="about.html">О студии</a>
+  <a class="nav-link" href="contacts.html">Контакты</a>
+  <a class="nav-link" href="reviews.html">Отзывы</a>
+  <button class="btn-header" onclick="openModal()">
+    <i class="fa-solid fa-calendar-check"></i> Забронировать
+  </button>
+</div>
+
+<!-- Переключатель темы -->
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Сменить тему">
+  <i class="fa-solid fa-sun"></i>
+</button>
+
+<!-- Мобильное меню -->
+<div class="mob-menu" id="mobMenu">
+  <a class="nav-link" href="index.html">Главная</a>
+  <a class="nav-link" href="tariffs.html">Тарифы</a>
+  <a class="nav-link" href="about.html">О студии</a>
+  <a class="nav-link" href="contacts.html">Контакты</a>
+  <a class="nav-link" href="reviews.html">Отзывы</a>
+  <button class="btn-header" onclick="openModal()" style="margin-top:.4rem">
+    <i class="fa-solid fa-calendar-check"></i> Забронировать
+  </button>
+</div>
+
+<main>
+  <section class="about-section" style="padding-top:5rem">
+    <div class="container">
+      <div class="label">О нас</div>
+      <h2 class="title">О студии</h2>
+
+      <!-- Вводный блок -->
+      <div class="about-intro">
+        <div class="about-img">
+          <img src="img/about-studio.jpg" alt="Главный зал студии">
+        </div>
+        <div class="about-text">
+          <h3>Мы создаём звук, который остаётся</h3>
+          <p>Music Prod — петербургская студия звукозаписи, открытая в 2016 году. За эти годы мы выпустили более 500 треков и помогли артистам от начинающих до резидентов крупных лейблов.</p>
+          <p>Студия оснащена по стандартам профессиональных мировых площадок: два изолированных зала, аппаратная с откалиброванным мониторингом и полная Pro Tools / Logic Pro среда.</p>
+          <div class="about-highlights">
+            <div class="ah-item"><i class="fa-solid fa-check"></i>Работаем с жанрами: поп, рок, хип-хоп, электронная, джаз, классика</div>
+            <div class="ah-item"><i class="fa-solid fa-check"></i>Принимаем как начинающих, так и профессиональных артистов</div>
+            <div class="ah-item"><i class="fa-solid fa-check"></i>Прозрачное ценообразование, никаких скрытых доплат</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Оборудование -->
+      <div class="label">Оборудование</div>
+      <h2 class="title" style="margin-bottom:1.5rem">Наше оборудование</h2>
+      <div class="eq-grid">
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-microphone"></i></div>
+          <div class="eq-name">Neumann TLM 103</div>
+          <div class="eq-model">Конденсаторный микрофон</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+          <div class="eq-name">Shure SM7B</div>
+          <div class="eq-model">Динамический микрофон</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-microphone"></i></div>
+          <div class="eq-name">AKG C414 XLII</div>
+          <div class="eq-model">Студийный микрофон</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-plug"></i></div>
+          <div class="eq-name">RME Fireface 802</div>
+          <div class="eq-model">Аудиоинтерфейс</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-volume-high"></i></div>
+          <div class="eq-name">Yamaha HS8</div>
+          <div class="eq-model">Студийные мониторы</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-volume-low"></i></div>
+          <div class="eq-name">Genelec 8030C</div>
+          <div class="eq-model">Ближнепольные мониторы</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-laptop"></i></div>
+          <div class="eq-name">Pro Tools Ultimate</div>
+          <div class="eq-model">Основная DAW</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-brands fa-apple"></i></div>
+          <div class="eq-name">Logic Pro X</div>
+          <div class="eq-model">DAW для Mac-сессий</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div class="eq-name">UAD Apollo Twin</div>
+          <div class="eq-model">Интерфейс + DSP</div>
+        </div>
+        <div class="eq-card">
+          <div class="eq-icon"><i class="fa-solid fa-headphones"></i></div>
+          <div class="eq-name">Beyerdynamic DT 770</div>
+          <div class="eq-model">Наушники для артистов</div>
+        </div>
+      </div>
+
+      <!-- Звукорежиссёры -->
+      <div class="label">Команда</div>
+      <h2 class="title" style="margin-bottom:1.5rem">Звукорежиссёры</h2>
+      <div class="engineers-grid">
+        <div class="eng-card">
+          <div class="eng-avatar"><img src="img/avatars/alexey.jpg" alt="Алексей Громов"></div>
+          <div class="eng-name">Алексей Громов</div>
+          <div class="eng-spec">Сведение и мастеринг</div>
+          <div class="eng-exp">12 лет опыта</div>
+          <p class="eng-desc">Специализируется на роке, металле и поп-музыке. Работал с несколькими российскими лейблами. Любит «живой» звук и аналоговую обработку.</p>
+        </div>
+        <div class="eng-card">
+          <div class="eng-avatar"><img src="img/avatars/dmitry.jpg" alt="Дмитрий Орлов"></div>
+          <div class="eng-name">Дмитрий Орлов</div>
+          <div class="eng-spec">Запись вокала и речи</div>
+          <div class="eng-exp">9 лет опыта</div>
+          <p class="eng-desc">Эксперт в записи вокала: от попа до джаза. Работает с начинающими артистами — умеет создать комфортную атмосферу для первой записи.</p>
+        </div>
+        <div class="eng-card">
+          <div class="eng-avatar"><img src="img/avatars/igor.jpg" alt="Игорь Михайлов"></div>
+          <div class="eng-name">Игорь Михайлов</div>
+          <div class="eng-spec">Электронная музыка</div>
+          <div class="eng-exp">7 лет опыта</div>
+          <p class="eng-desc">Основной профиль — электронная музыка, хип-хоп и R&B. Отлично владеет Ableton и Logic, создаёт плотный и современный электронный саунд.</p>
+        </div>
+        <div class="eng-card">
+          <div class="eng-avatar"><img src="img/avatars/olga.jpg" alt="Ольга Вершинина"></div>
+          <div class="eng-name">Ольга Вершинина</div>
+          <div class="eng-spec">Живые инструменты и джаз</div>
+          <div class="eng-exp">10 лет опыта</div>
+          <p class="eng-desc">Музыкант и звукорежиссёр. Специализируется на классике, джазе и камерной музыке. Тонко чувствует нюансы живого исполнения.</p>
+        </div>
+      </div>
+
+      <!-- Галерея -->
+      <div class="label" style="margin-top:3.5rem">Галерея</div>
+      <h2 class="title" style="margin-bottom:1.5rem">Наша студия</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-wide">
+          <img src="img/gallery/studio1.jpg" alt="Пульт управления" loading="lazy">
+          <div class="gallery-caption">Пульт управления</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/gallery/studio2.jpg" alt="Вокальная кабина" loading="lazy">
+          <div class="gallery-caption">Вокальная кабина</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/gallery/studio3.jpg" alt="Аппаратная" loading="lazy">
+          <div class="gallery-caption">Аппаратная</div>
+        </div>
+        <div class="gallery-item gallery-wide">
+          <img src="img/gallery/studio4.jpg" alt="Студийное оборудование" loading="lazy">
+          <div class="gallery-caption">Студийное оборудование</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Футер -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html" style="justify-content:flex-start">
+        <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+        <div class="logo-text">Music<span>Prod</span></div>
+      </a>
+      <p>Профессиональная студия звукозаписи в Санкт-Петербурге. Воплощаем ваши музыкальные идеи с 2016 года.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="tariffs.html">Тарифы</a></li>
+        <li><a href="about.html">О студии</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="reviews.html">Отзывы</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <ul>
+        <li>+7 (812) 123-45-67</li>
+        <li>booking@musicprod.ru</li>
+        <li>ул. Рубинштейна, 15</li>
+        <li>Пн–Вс, 10:00–22:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 MusicProd. Все права защищены.</span>
+    <span>Санкт-Петербург, ул. Рубинштейна, 15</span>
+    <a href="admin.html" class="admin-footer-link"><i class="fa-solid fa-lock"></i> Админ</a>
+  </div>
+</footer>
+
+<!-- Модальное окно -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-title">Забронировать сессию</div>
+    <p class="modal-sub">Заполните форму — мы свяжемся в течение часа и подтвердим бронь</p>
+    <form id="bookingForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fName">Имя *</label>
+          <input type="text" id="fName" placeholder="Ваше имя" required>
+        </div>
+        <div class="form-group">
+          <label for="fPhone">Телефон *</label>
+          <input type="tel" id="fPhone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group full">
+          <label for="fEmail">Email</label>
+          <input type="email" id="fEmail" placeholder="mail@example.com">
+        </div>
+        <div class="form-group">
+          <label for="fTariff">Тариф</label>
+          <select id="fTariff">
+            <option value="">— Выберите —</option>
+            <option value="vocal">Запись вокала</option>
+            <option value="instruments">Запись инструментов</option>
+            <option value="mixing">Сведение / Мастеринг</option>
+            <option value="rent">Аренда студии</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fEngineer">Звукорежиссёр</label>
+          <select id="fEngineer">
+            <option value="">— Любой —</option>
+            <option value="aleksey">Алексей Громов</option>
+            <option value="dmitriy">Дмитрий Орлов</option>
+            <option value="igor">Игорь Михайлов</option>
+            <option value="olga">Ольга Вершинина</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="fDate">Желаемая дата</label>
+          <input type="date" id="fDate">
+        </div>
+        <div class="form-group full">
+          <label for="fComment">Комментарий</label>
+          <textarea id="fComment" placeholder="Жанр, количество треков, пожелания..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">
+        <i class="fa-solid fa-paper-plane"></i> Отправить заявку
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Тост -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  Спасибо! Мы свяжемся с вами в ближайшее время.
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

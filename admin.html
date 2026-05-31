@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ — Music Prod</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- Экран входа-->
+<div id="loginScreen" class="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <i class="fa-solid fa-microphone-lines"></i>
+      <span>Music<b>Prod</b></span>
+    </div>
+    <h2>Вход в панель</h2>
+    <p>Только для администраторов</p>
+    <div class="login-field">
+      <i class="fa-solid fa-lock"></i>
+      <input type="password" id="adminPass" placeholder="Пароль" onkeydown="if(event.key==='Enter')login()">
+    </div>
+    <div class="login-error" id="loginError">Неверный пароль</div>
+    <button class="login-btn" onclick="login()">
+      <i class="fa-solid fa-right-to-bracket"></i> Войти
+    </button>
+    <a href="index.html" class="login-back">← Вернуться на сайт</a>
+  </div>
+</div>
+
+<!-- Панель админа-->
+<div id="adminPanel" style="display:none">
+
+  <!-- Шапка -->
+  <header class="admin-header">
+    <div class="admin-logo">
+      <i class="fa-solid fa-microphone-lines"></i>
+      <span>Music<b>Prod</b> — Панель управления</span>
+    </div>
+    <div class="admin-header-right">
+      <a href="index.html" class="admin-link"><i class="fa-solid fa-arrow-left"></i> На сайт</a>
+      <button class="admin-logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Выйти</button>
+    </div>
+  </header>
+
+  <!-- Плашка статуса БД -->
+  <div class="db-status-bar" id="dbStatusBar">
+    <div class="db-status-dot" id="dbStatusDot"></div>
+    <span id="dbStatusText">Проверка подключения...</span>
+  </div>
+
+  <main class="admin-main">
+
+    <!-- Статистика -->
+    <section class="admin-section">
+      <h2><i class="fa-solid fa-chart-bar"></i> Статистика заявок</h2>
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(99,102,241,.15);color:#818cf8"><i class="fa-solid fa-list"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTotal">—</div>
+            <div class="stat-name">Всего заявок</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(234,179,8,.12);color:#fbbf24"><i class="fa-solid fa-clock"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statNew">—</div>
+            <div class="stat-name">Новых</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(34,197,94,.12);color:#4ade80"><i class="fa-solid fa-check"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statWeek">—</div>
+            <div class="stat-name">За последние 7 дней</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background:rgba(168,85,247,.15);color:#c084fc"><i class="fa-solid fa-guitar"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTopTariff">—</div>
+            <div class="stat-name">Популярный тариф</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Диаграммы -->
+    <section class="admin-section charts-row">
+      <div class="chart-box">
+        <h3><i class="fa-solid fa-chart-pie"></i> По тарифам</h3>
+        <canvas id="chartTariff" height="240"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3><i class="fa-solid fa-chart-line"></i> По месяцам</h3>
+        <canvas id="chartMonth" height="240"></canvas>
+      </div>
+    </section>
+
+    <!-- Таблица заявок -->
+    <section class="admin-section">
+      <div class="table-header">
+        <h2><i class="fa-solid fa-table"></i> Заявки</h2>
+        <div class="table-actions">
+          <select id="filterStatus" onchange="filterBookings()">
+            <option value="">Все статусы</option>
+            <option value="new">Новые</option>
+          </select>
+          <input type="text" id="filterSearch" placeholder="Поиск по имени / телефону..." oninput="filterBookings()">
+          <button class="btn-clear" onclick="clearAll()" title="Очистить все заявки">
+            <i class="fa-solid fa-trash"></i> Очистить
+          </button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="admin-table" id="bookingsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Дата заявки</th>
+              <th>Имя</th>
+              <th>Телефон</th>
+              <th>Тариф</th>
+              <th>Звукореж.</th>
+              <th>Дата сессии</th>
+              <th>Комментарий</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody id="bookingsTbody"></tbody>
+        </table>
+        <div class="table-empty" id="tableEmpty" style="display:none">
+          <i class="fa-solid fa-inbox"></i>
+          <p>Заявок пока нет. Они появятся после того, как кто-нибудь оставит заявку на сайте.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

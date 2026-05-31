@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отзывы — Music Prod</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+<!-- Шапка -->
+<header>
+  <a class="logo" href="index.html">
+    <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+    <div class="logo-text">Music<span>Prod</span></div>
+  </a>
+  <button class="burger" id="burger" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Навигация -->
+<div class="floating-nav" id="floatingNav">
+  <a class="nav-link" href="index.html">Главная</a>
+  <a class="nav-link" href="tariffs.html">Тарифы</a>
+  <a class="nav-link" href="about.html">О студии</a>
+  <a class="nav-link" href="contacts.html">Контакты</a>
+  <a class="nav-link" href="reviews.html">Отзывы</a>
+  <button class="btn-header" onclick="openModal()">
+    <i class="fa-solid fa-calendar-check"></i> Забронировать
+  </button>
+</div>
+
+<!-- Переключатель темы -->
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Сменить тему">
+  <i class="fa-solid fa-sun"></i>
+</button>
+
+<!-- Мобильное меню -->
+<div class="mob-menu" id="mobMenu">
+  <a class="nav-link" href="index.html">Главная</a>
+  <a class="nav-link" href="tariffs.html">Тарифы</a>
+  <a class="nav-link" href="about.html">О студии</a>
+  <a class="nav-link" href="contacts.html">Контакты</a>
+  <a class="nav-link" href="reviews.html">Отзывы</a>
+  <button class="btn-header" onclick="openModal()" style="margin-top:.4rem">
+    <i class="fa-solid fa-calendar-check"></i> Забронировать
+  </button>
+</div>
+
+<main>
+  <section class="reviews-section" style="padding-top:5rem">
+    <div class="container">
+      <div class="label">Мнения клиентов</div>
+      <h2 class="title">Отзывы</h2>
+      <p class="sub">Реальные истории от артистов, которые доверили нам свой звук</p>
+      <div class="reviews-grid" id="reviews-list">
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★★</div>
+            <div class="rv-date">12 февраля 2025</div>
+          </div>
+          <p class="rv-text">«Записывали дебютный сингл. Алексей создал идеальный звук — именно то, что мы слышали в голове. Студия очень уютная, совсем нет стресса. Уже бронируем следующую сессию!»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">Анастасия Лукина</div>
+              <div class="rv-city">Санкт-Петербург</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★★</div>
+            <div class="rv-date">28 января 2025</div>
+          </div>
+          <p class="rv-text">«Пишем здесь уже третий альбом. Команда профессиональная, оборудование топовое, а главное — они реально понимают, какой звук нужен рок-группе. Рекомендую всем!»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">Группа «Восток»</div>
+              <div class="rv-city">Санкт-Петербург</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★★</div>
+            <div class="rv-date">5 января 2025</div>
+          </div>
+          <p class="rv-text">«Сведение и мастеринг сделали за 2 дня. Результат — огонь. Трек звучит профессионально на любых системах. Цена полностью оправдана.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">DJ Phantom</div>
+              <div class="rv-city">Санкт-Петербург</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★★</div>
+            <div class="rv-date">19 декабря 2024</div>
+          </div>
+          <p class="rv-text">«Первый раз в студии — честно, боялся. Дмитрий сразу успокоил, объяснил процесс. Вышло намного лучше, чем ожидал. Звук живой и настоящий.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">MC Север</div>
+              <div class="rv-city">Санкт-Петербург</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★★</div>
+            <div class="rv-date">3 декабря 2024</div>
+          </div>
+          <p class="rv-text">«Записывали джазовое трио живьём. Ольга поймала всю атмосферу — и тепло контрабаса, и дыхание саксофона. Очень редкое умение для студии.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">Trio Latitude</div>
+              <div class="rv-city">Санкт-Петербург</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★☆</div>
+            <div class="rv-date">14 ноября 2024</div>
+          </div>
+          <p class="rv-text">«Хорошая студия, приятные ребята. Единственный минус — загруженное расписание, пришлось ждать неделю. Но результат стоил ожидания.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">Виктория Соль</div>
+              <div class="rv-city">Казань</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★★</div>
+            <div class="rv-date">29 октября 2024</div>
+          </div>
+          <p class="rv-text">«Снял студию на весь день под репетицию. Удобно, тихо, всё оборудование работает идеально. Буду арендовать регулярно.»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">Артём Волков</div>
+              <div class="rv-city">Санкт-Петербург</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-stars">★★★★★</div>
+            <div class="rv-date">8 октября 2024</div>
+          </div>
+          <p class="rv-text">«Записали детский хор для рекламы. Команда была очень терпелива с детьми, сделали всё чётко и в срок. Огромное спасибо за профессионализм!»</p>
+          <div class="rv-author">
+            <div class="rv-avatar"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="rv-name">Мария Светлова</div>
+              <div class="rv-city">Санкт-Петербург</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA-секция -->
+      <div class="rv-cta">
+        <h3>Готовы записаться?</h3>
+        <p>Оставьте заявку — мы свяжемся и подберём удобное время</p>
+        <button class="btn-primary" onclick="openModal()">
+          <i class="fa-solid fa-calendar-check"></i> Оставить заявку
+        </button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Футер -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html" style="justify-content:flex-start">
+        <div class="logo-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+        <div class="logo-text">Music<span>Prod</span></div>
+      </a>
+      <p>Профессиональная студия звукозаписи в Санкт-Петербурге. Воплощаем ваши музыкальные идеи с 2016 года.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="tariffs.html">Тарифы</a></li>
+        <li><a href="about.html">О студии</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="reviews.html">Отзывы</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <ul>
+        <li>+7 (812) 123-45-67</li>
+        <li>booking@musicprod.ru</li>
+        <li>ул. Рубинштейна, 15</li>
+        <li>Пн–Вс, 10:00–22:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 MusicProd. Все права защищены.</span>
+    <span>Санкт-Петербург, ул. Рубинштейна, 15</span>
+    <a href="admin.html" class="admin-footer-link"><i class="fa-solid fa-lock"></i> Админ</a>
+  </div>
+</footer>
+
+<!-- Модальное окно -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-title">Забронировать сессию</div>
+    <p class="modal-sub">Заполните форму — мы свяжемся в течение часа и подтвердим бронь</p>
+    <form id="bookingForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fName">Имя *</label>
+          <input type="text" id="fName" placeholder="Ваше имя" required>
+        </div>
+        <div class="form-group">
+          <label for="fPhone">Телефон *</label>
+          <input type="tel" id="fPhone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group full">
+          <label for="fEmail">Email</label>
+          <input type="email" id="fEmail" placeholder="mail@example.com">
+        </div>
+        <div class="form-group">
+          <label for="fTariff">Тариф</label>
+          <select id="fTariff">
+            <option value="">— Выберите —</option>
+            <option value="vocal">Запись вокала</option>
+            <option value="instruments">Запись инструментов</option>
+            <option value="mixing">Сведение / Мастеринг</option>
+            <option value="rent">Аренда студии</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fEngineer">Звукорежиссёр</label>
+          <select id="fEngineer">
+            <option value="">— Любой —</option>
+            <option value="aleksey">Алексей Громов</option>
+            <option value="dmitriy">Дмитрий Орлов</option>
+            <option value="igor">Игорь Михайлов</option>
+            <option value="olga">Ольга Вершинина</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="fDate">Желаемая дата</label>
+          <input type="date" id="fDate">
+        </div>
+        <div class="form-group full">
+          <label for="fComment">Комментарий</label>
+          <textarea id="fComment" placeholder="Жанр, количество треков, пожелания..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">
+        <i class="fa-solid fa-paper-plane"></i> Отправить заявку
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Тост -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  Спасибо! Мы свяжемся с вами в ближайшее время.
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
